@@ -5,13 +5,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'jenkins tool test'
-                //snDevOpsArtifact artifactsPayload: '{"artifacts":[{"name": "sa-web.jar", "version": "1.9", "repositoryName": "services-1031"}, {"name": "sa-db.jar", "version": "1.3.2", "repositoryName": "services-1032"}], "branchName": "master"}'
+                //snDevOpsArtifact artifactsPayload: '{"artifacts":[{"name": "sa-web.jar", "version": "1.9", "repositoryName": "AutomationTest-Repo"}, {"name": "sa-db.jar", "version": "1.3.2", "repositoryName": "services-1032"}], "branchName": "main"}'
             }
         }
         
         stage('Test') {
             steps {
-                snDevOpsArtifact artifactsPayload: '{"artifacts":[{"name": "sa-web.jar", "version": "1.9", "repositoryName": "services-1031"}, {"name": "sa-db.jar", "version": "1.3.2", "repositoryName": "services-1032"}], "branchName": "master"}'
+                snDevOpsArtifact artifactsPayload: '{"artifacts":[{"name": "sa-web.jar", "version": "1.9", "repositoryName": "AutomationTest-Repo"}, {"name": "sa-db.jar", "version": "1.3.2", "repositoryName": "AutomationTest-Repo"}], "branchName": "main"}'
             }
         }
     }

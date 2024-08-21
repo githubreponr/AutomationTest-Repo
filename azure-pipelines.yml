@@ -1,0 +1,45 @@
+trigger:
+  - none
+pool:
+  vmImage: ubuntu-latest
+variables:
+  - group: Variable Group
+stages:
+  - stage: preBuild
+    jobs:
+      - job: test
+        displayName: test
+        steps:
+          - task: ServiceNow-DevOps-Agent-Artifact-Registration@1
+            inputs:
+              connectedServiceName: $(ServiceNowConnection)
+              artifactsPayload: |
+                {
+                    "artifacts": [
+                      {
+                          "name": "sampletest",
+                          "version": "1.$(Build.BuildId)",
+                          "semanticVersion": "1.$(Build.BuildId).0",
+                          "repositoryName": "ArtifactMapping"
+                      }
+                    ]
+                }
+  - stage: Build
+    jobs:
+      - job: test
+        displayName: test
+        steps:
+          - task: ServiceNow-DevOps-Agent-Artifact-Registration@1
+            inputs:
+              connectedServiceName: $(ServiceNowConnection)
+              artifactsPayload: |
+                {
+                    "artifacts": [
+                      {
+                          "name": "sampletestBuild",
+                          "version": "1.$(Build.BuildId)",
+                          "semanticVersion": "1.$(Build.BuildId).0",
+                          "repositoryName": "ArtifactMapping"
+                      }
+                    ]
+                }

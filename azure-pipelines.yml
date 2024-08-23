@@ -11,6 +11,7 @@ stages:
         steps:
           - task: ServiceNow-DevOps-Agent-Artifact-Registration@1
             inputs:
+              connectedServiceName: '$(ServiceNowConnection)'
               artifactsPayload: |
                 {
                     "artifacts": [
@@ -29,7 +30,8 @@ stages:
         steps:
           - task: ServiceNow-DevOps-Agent-Artifact-Registration@1
             inputs:
-              artifactsPayload: |
+             connectedServiceName: '$(ServiceNowConnection)'
+             artifactsPayload: |
                 {
                     "artifacts": [
                       {

@@ -30,15 +30,16 @@ stages:
         steps:
           - task: ServiceNow-DevOps-Agent-Artifact-Registration@1
             inputs:
-             connectedServiceName: '$(ServiceNowConnection)'
-             artifactsPayload: |
+              connectedServiceName: 'empnarendra1-adopipelineProject-ServiceNow DevOps Service Connection'
+              #packageName: 'sampletestBuild'
+              artifactsPayload: |
                 {
                     "artifacts": [
                       {
                           "name": "sampletestBuild",
-                          "version": "1.$(Build.BuildId)",
-                          "semanticVersion": "1.$(Build.BuildId).0",
-                          "repositoryName": "adopipelineProject"
+                          "repositoryName": "adopipelineProject",
+                          "version": "1.$(build.buildId)",
+                          "currentBuildInfo": "true"
                       }
                     ]
                 }

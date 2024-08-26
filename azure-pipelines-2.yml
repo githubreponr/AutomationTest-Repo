@@ -4,25 +4,6 @@ pool:
   vmImage: ubuntu-latest
 
 stages:
-  - stage: preBuild
-    jobs:
-      - job: test
-        displayName: test
-        steps:
-          - task: ServiceNow-DevOps-Agent-Artifact-Registration@1
-            inputs:
-              connectedServiceName: '$(ServiceNowConnection)'
-              artifactsPayload: |
-                {
-                    "artifacts": [
-                      {
-                          "name": "sampletest",
-                          "version": "1.$(Build.BuildId)",
-                          "semanticVersion": "1.$(Build.BuildId).0",
-                          "repositoryName": "adopipelineProject"
-                      }
-                    ]
-                }
   - stage: Build
     jobs:
       - job: test

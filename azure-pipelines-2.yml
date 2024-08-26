@@ -9,18 +9,18 @@ stages:
       - job: test
         displayName: test
         steps:
-          - task: ServiceNow-DevOps-Agent-Artifact-Registration@1
-            inputs:
-              connectedServiceName: 'empnarendra1-adopipelineProject-ServiceNow DevOps Service Connection'
-              #packageName: 'sampletestBuild'
-              artifactsPayload: |
-                {
-                    "artifacts": [
-                      {
-                          "name": "sampletestBuild",
-                          "repositoryName": "adopipelineProject",
-                          "version": "1.$(build.buildId)",
-                          "currentBuildInfo": "true"
-                      }
-                    ]
-                }
+          
+         - task: ServiceNow-DevOps-Agent-Artifact-Registration@1
+           inputs:
+             connectedServiceName: 'empnarendra1-adopipelineProject-ServiceNow DevOps Service Connection'
+             artifactsPayload: |
+               {
+                  "artifacts": [
+                    {
+                "name": "sampletestBuild",
+                "repositoryName": "adopipelineProject",
+                "version": "1.$(build.buildId)",
+                "currentBuildInfo": "true"
+                   }
+                  ]
+               }

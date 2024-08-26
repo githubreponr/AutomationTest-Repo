@@ -34,11 +34,12 @@ stages:
             effectivePomSkip: false
             sonarQubeRunAnalysis: false
 
+    
         - task: ServiceNow-DevOps-Build-Sonar-Registration@1
           inputs:
-            connectedServiceName: 'empnarendra1-adopipelineProject-ServiceNow DevOps Service Connection'
-            sonarProjectKey: 'balu-sn-devops_First_repo'
-            sonarInstanceUrl: 'http://sonarqube1.sndevops.xyz'
+             connectedServiceName: 'empnarendra1-adopipelineProject-ServiceNow DevOps Service Connection'
+             sonarProjectKey: 'balu-sn-devops_First_repo'
+             sonarInstanceUrl: 'http://sonarqube1.sndevops.xyz'
 
   # - stage: Deploy
   #   jobs:
